@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;500;700&display=swap');
+
+:root {
+    --blue-dark: #20559b;
+    --blue: #6078ac;
+    --blue-light: #e8f0fe;
+    --grey-1: #d4d4d4;
+    --grey-2: #f0eef1;
+    --white: #fafafa;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--grey-2);
+    min-height: 100vh;
+}
+
+/* Header */
+header {
+    background-color: var(--blue);
+    height: 100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 5px 5px 5px 40px;
+    color: var(--white);
+}
+
+header>h1 {
+    font-size: 3rem;
+}
+
+/* Main */
+main {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 40px;
+    overflow-x: hidden;
+    margin-top: 20px;
+}
+
+main > button {
+    padding: 10px 15px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    transition: background-color 0.2s;
+}
+
+main > button:hover {
+    background-color: var(--grey-1);
+}
+
+/* Cards Container */
+.library-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 40px;
+    width: 100%;
+    margin-top: 50px;
+}
+
+.library-container>div {
+    background-color: var(--blue);
+    font-size: 1.2rem;
+    gap: 20px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    color: var(--white);
+    border-radius: 10px;
+}
+
+.library-container>div>button {
+    width: 100%;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.read {
+    background-color: lightgreen !important;
+    border: none;
+}
+
+.not-read {
+    background-color: lightcoral !important;
+    border: none;
+}
+
+/* Book Form */
+.form-container {
+    position: fixed;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    min-height: 350px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: var(--blue-dark);
+    text-align: center;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 0.2s ease-in-out;
+}
+
+.form-container.active {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+#bookForm {
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+    height: 100%;
+    color: var(--white);
+    gap: 25px;
+}
+
+#bookForm > h1 {
+    font-size: 1.4rem;
+}
+
+#bookForm input,
+.checkbox-container,
+#submitBtn {
+    height: 40px;
+    font-size: 1.2rem;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+#bookForm input {
+    background-color: var(--blue-light);
+}
+
+#bookForm input:focus {
+    outline: none;
+}
+
+.error-message {
+    display: none;
+    color: red;
+    font-size: 1.2rem;
+    margin-top: 5px;
+}
+
+.checkbox-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.checkbox-container > label {
+    cursor: pointer;
+}
+
+.checkbox-container > #isRead {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--blue-light);
+    cursor: pointer;
+}
+
+#submitBtn {
+    cursor: pointer;
+    background-color: var(--blue);
+    color: var(--white);
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Overlay */
+#overlay {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    display: none;
+    top: 0;
+    left: 0;
+}
+
+#overlay.active {
+    display: block;
+}
+
+/* Footer */
+footer {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #6078ac;
+    gap: 10px;
+}
+
+footer > p {
+    font-size: 1.1rem;
+}
+
+footer > a {
+    font-size: 1.7rem;
+    color: black;
+    transition: transform 0.3s ease, color 0.2s ease-in;
+}
+
+footer > a:hover {
+    transform: scale(1.1);
+    color: var(--white);
+}
+
+/* Media query */
+@media (max-width: 700px){
+    header {
+        justify-content: center;
+        padding-left: 0;
+    }
+}
