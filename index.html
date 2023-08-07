@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <title>Library</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>Library</h1>
+    </header>
+
+    <main>
+        <button id="addBookBtn">Add a book +</button>
+
+        <div class="form-container">
+            <form id="bookForm">
+                <h1>Add a new book!</h1>
+                <input type="text" id="Title" placeholder="Title" required maxlength="100">
+                <p class="error-message">This book already exists in your library!</p>
+                <input type="text" id="Author" placeholder="Author" required maxlength="100">
+                <input type="number" id="Pages" placeholder="Pages" min="1" max="5000" required>
+                <div class="checkbox-container">
+                    <label for="isRead">Have you read it?</label>
+                    <input type="checkbox" id="isRead">
+                </div>
+                <button type="submit" id="submitBtn">Submit</button>
+            </form>
+        </div>
+
+        <div class="library-container"></div>
+
+        <div class="overlay" id="overlay"></div>
+    </main>
+
+    <footer>
+        <p>Copyright © 2023 Tiago-salva</p>
+        <a href="https://github.com/Tiago-salva">
+            <i class="fa-brands fa-github"></i>
+        </a>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
